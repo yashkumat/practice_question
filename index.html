@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Practice Question</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Hi Yash!</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Correct Answer: 0</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Total Questions : 0</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav> -->
+    <!-- Container -->
+    <div class="container">
+        <div class="offcanvas offcanvas-start show" tabindex="-1" id="offcanvasExample"
+            aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Practice Questions</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="fst-italic mb-4">
+                    Select your Board, Class and Subejct to get questions of your preference
+                </div>
+                <form id="form">
+                    <div class="row">
+                        <div class="col-md-12 my-2">
+                            <h5>Board</h5>
+                            <div class="btn-group btn-group-sm" role="radio">
+                                <input type="radio" class="btn-check" name="board" value="CBSE" id="board_cbse" checked>
+                                <label class="btn btn-outline-primary" for="board_cbse">CBSE</label>
+                                <input type="radio" class="btn-check" name="board" value="SSC" id="board_ssc">
+                                <label class="btn btn-outline-primary" for="board_ssc">SSC</label>
+                                <input type="radio" class="btn-check" name="board" value="ICSE" id="board_icse">
+                                <label class="btn btn-outline-primary" for="board_icse">ICSE</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 my-2">
+                            <h5>Class</h5>
+                            <div class="btn-group btn-group-sm" role="group">
+                                <input type="radio" class="btn-check" name="classes" value="6th" id="class_6th"
+                                    autocomplete="off">
+                                <label class="btn btn-outline-primary" for="class_6th">6th</label>
+                                <input type="radio" class="btn-check" name="classes" value="7th" id="class_7th"
+                                    autocomplete="off">
+                                <label class="btn btn-outline-primary" for="class_7th">7th</label>
+                                <input type="radio" class="btn-check" name="classes" value="8th" id="class_8th"
+                                    autocomplete="off" checked>
+                                <label class="btn btn-outline-primary" for="class_8th">8th</label>
+                                <input type="radio" class="btn-check" name="classes" value="9th" id="class_9th"
+                                    autocomplete="off">
+                                <label class="btn btn-outline-primary" for="class_9th">9th</label>
+                                <input type="radio" class="btn-check" name="classes" value="10th" id="class_10th"
+                                    autocomplete="off">
+                                <label class="btn btn-outline-primary" for="class_10th">10th</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 my-2">
+                            <h5>Subject</h5>
+                            <div class="btn-group btn-group-sm" role="group">
+                                <input type="radio" class="btn-check" name="subject" value="Physics"
+                                    id="subject_physics" autocomplete="off" checked>
+                                <label class="btn btn-outline-primary" for="subject_physics">Physics</label>
+                                <input type="radio" class="btn-check" name="subject" value="Chemistry"
+                                    id="subject_chemistry" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="subject_chemistry">Chemistry</label>
+                                <input type="radio" class="btn-check" name="subject" value="Biology"
+                                    id="subject_biology" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="subject_biology">Biology</label>
+                                <input type="radio" class="btn-check" name="subject" value="Maths" id="subject_maths"
+                                    autocomplete="off">
+                                <label class="btn btn-outline-primary" for="subject_maths">Maths</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 my-2">
+                            <button class="btn btn-primary" id="get_question" data-bs-dismiss="offcanvas"
+                                aria-label="Close">Get Question</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 text-end fixed-bottom my-2">
+                <button class="btn btn-primary " type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-gear" viewBox="0 0 16 16">
+                        <path
+                            d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0" />
+                        <path
+                            d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="row text-center">
+            <div class="col-md-12 my-4">
+                <span class="fw-bold">Question:</span>
+                <p class="small mb-0" id="loader" style="display: none">Loading</p>
+                <span id="question" class="mx-2">Lorem ipsum dolor sit amet
+                    consectetur
+                    adipisicing elit. Beatae, repudiandae!</span>
+            </div>
+            <div class="col-md-12">
+                <div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
+                    <input type="radio" class="btn-check" name="options" id="options_1" autocomplete="off"
+                        onclick="handleClick()">
+                    <label class="btn btn-outline-primary" for="options_1" id="options_1_label">Option 1</label>
+                    <input type="radio" class="btn-check" name="options" id="options_2" autocomplete="off"
+                        onclick="handleClick()">
+                    <label class="btn btn-outline-primary" for="options_2" id="options_2_label">Option 2</label>
+                    <input type="radio" class="btn-check" name="options" id="options_3" autocomplete="off"
+                        onclick="handleClick()">
+                    <label class="btn btn-outline-primary" for="options_3" id="options_3_label">Option 3</label>
+                    <input type="radio" class="btn-check" name="options" id="options_4" autocomplete="off"
+                        onclick="handleClick()">
+                    <label class="btn btn-outline-primary" for="options_4" id="options_4_label">Option 4</label>
+                    <span id="correct_answer" class="d-none"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <script type="importmap">
+                  {
+                    "imports": {
+                      "@google/generative-ai": "https://esm.run/@google/generative-ai"
+                    }
+                  }
+            
+                </script>
+
+    <script>
+        function handleClick() {
+            const selected_answer = document.querySelector('input[name="options"]:checked');
+            let correct_answer = document.getElementById('correct_answer').innerText;
+            let label_id = selected_answer.id + "_label"
+
+            if (selected_answer.value == correct_answer) {
+                console.log("Correct Answer", selected_answer.value);
+                document.getElementById(label_id).classList.add('bg-success');
+                setTimeout(get_new_question, 1000, label_id);
+            } else {
+                console.log("Wrong answer", correct_answer);
+                document.getElementById(label_id).classList.add('bg-danger');
+                setTimeout(alertFunc, 1000, label_id);
+            }
+
+
+        }
+
+        function alertFunc(label_id) {
+            var elements = document.getElementsByName("options");
+
+            for (var i = 0; i < elements.length; i++) {
+                if (elements[i].type == "radio") {
+                    elements[i].checked = false;
+                }
+            }
+            document.getElementById(label_id).classList.remove('bg-danger');
+        }
+        function get_new_question(label_id) {
+            var elements = document.getElementsByName("options");
+
+            for (var i = 0; i < elements.length; i++) {
+                if (elements[i].type == "radio") {
+                    elements[i].checked = false;
+                }
+            }
+            document.getElementById(label_id).classList.remove('bg-success');
+            document.getElementById('get_question').click();
+        }
+
+    </script>
+
+    <script type="module">
+        import { GoogleGenerativeAI } from "@google/generative-ai";
+        const API_KEY = "AIzaSyBV07BAccSkbAIx0oVl_VOuneGgXKc3prM";
+        const genAI = new GoogleGenerativeAI(API_KEY);
+        const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+        const loader = document.querySelector('#loader')
+        let board = $('input[name="board"]:checked').val();
+        let classes = $('input[name="classes"]:checked').val();
+        let subject = $('input[name="subject"]:checked').val();
+        const question = document.querySelector('#question')
+        let options_1_label = document.getElementById('options_1_label')
+        let options_2_label = document.getElementById('options_2_label')
+        let options_3_label = document.getElementById('options_3_label')
+        let options_4_label = document.getElementById('options_4_label')
+        let options_1 = document.getElementById('options_1')
+        let options_2 = document.getElementById('options_2')
+        let options_3 = document.getElementById('options_3')
+        let options_4 = document.getElementById('options_4')
+        const correct_answer = document.getElementById('correct_answer')
+        form.addEventListener("submit", async function (e) {
+            e.preventDefault();
+            const data = new FormData(form);
+            for (const [name, value] of data) {
+                if (name == 'board') {
+                    board = value
+                }
+                if (name == 'classes') {
+                    classes = value
+                }
+                if (name == 'subject') {
+                    subject = value
+                }
+            }
+            const prompt = `Generate JSON object representing a multiple-choice question for board ${board}, Class ${classes}, Subject ${subject}, with the 4 options with correct answer.`
+            console.log(prompt);
+            // const prompt = "Suggest both a positive and a negative reply in Hindi, English, and Marathi to the following message: '" + question.value + "'."
+            loader.style.display = 'block'
+            question.style.display = 'none'
+            options_1_label.innerText = "options 1";
+            options_2_label.innerText = "options 2";
+            options_3_label.innerText = "options 3";
+            options_4_label.innerText = "options 4";
+            const result = await model.generateContent(prompt);
+            const response = await result.response;
+            loader.style.display = 'none'
+            const text = response.text();
+            // Parse JSON response
+            const json_text = JSON.parse(text.replace(/`/g, ''))
+
+            // Extract question, options, and correct answer
+            const options = json_text.options;
+            correct_answer.innerText = json_text.correct_answer;
+            question.innerText = json_text.question;
+            options_1_label.innerText = options[0];
+            options_2_label.innerText = options[1];
+            options_3_label.innerText = options[2];
+            options_4_label.innerText = options[3];
+            options_1.value = options[0];
+            options_2.value = options[1];
+            options_3.value = options[2];
+            options_4.value = options[3];
+            question.style.display = 'block';
+
+        })
+
+    </script>
+</body>
+
+</html>
